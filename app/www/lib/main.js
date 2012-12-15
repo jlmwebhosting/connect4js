@@ -5,6 +5,7 @@ require.config({
     	'domReady': 'require/domReady',
         'text':'require/require-text',
         'jquery': 'jquery/jquery',
+        "game_controller": "/js/controllers/game_controller",
         'angular': 'angular/angular.min',
         'angular-resource': 'angular/angular-resource',
         'angular-cookies': 'angular/angular-cookies',
@@ -31,8 +32,8 @@ require.config({
     }
 });
 
-require(["socket", "jquery", "angular", "domReady"],
-	function(socket, $, angular){
+require(["socket", "jquery", "angular", 'game_controller', 'domReady'],
+	function(socket, $, angular, GameController, domReady){
         var app = angular.module('connect4', []);
         app.controller('GameController', GameController);
         app.run();
