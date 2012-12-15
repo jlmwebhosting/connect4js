@@ -1,7 +1,6 @@
-// Require.js allows us to configure shortcut alias
+"use strict";
+
 require.config({
-	// The shim config allows us to configure dependencies for
-	// scripts that do not call define() to register a module
 	shim: {
 		'socket.io': {
 			exports: 'io'
@@ -12,26 +11,20 @@ require.config({
 	}
 });
 
-
-require(["socket.io","jquery","domReady"],
-	function(io, $) {
+require(["socket","jquery","domReady"],
+	function(socket, $) {
 
 		var message = $("#message");
 
-		var socket = io.connect('/');
-		socket.on("waiting", function (data) {
-			var msg = (data && data.message) || "waiting ...";
-			message.text(msg);
-		});
-		socket.on("player_move", function (data) {
+		socket.callbacks.waiting = function (msg) {
+			message.text(msg || "waiting ...");
+		};
+		socket.callbacks.player_move = function (data) {
 			message.text("player move: "+JSON.stringify(data));
-		});
-		var move = function () {
-			socket.emit("move", {message:'The message'});
 		};
 		$("#move").click(function (e) {
 			if (e.button === 0) {
-				move();
+				socket.move({message:'The message'});
 			}
 		});
 
