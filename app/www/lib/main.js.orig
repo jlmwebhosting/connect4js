@@ -1,8 +1,15 @@
-/*global require:false, define:false */
+<<<<<<< HEAD
+"use strict";
+
+require.config({
+	shim: {
+		'socket.io': {
+=======
 'use strict';
+
 require.config({
     paths: {
-    	'domReady': 'require/domReady',
+    	'domRead': 'require/domReady',
         'text':'require/require-text',
         'jquery': 'jquery/jquery',
         'angular': 'angular/angular.min',
@@ -26,14 +33,22 @@ require.config({
             exports: '_'
         },
         'socket.io': {
+>>>>>>> 3d7f66f722b16771d4b6f793de7dcf5a600d141f
 			exports: 'io'
 		}
     }
 });
 
-require(["socket", "jquery", "angular", "domReady"],
-	function(socket, $, angular){
+<<<<<<< HEAD
+require(["socket","jquery","domReady"],
+	function(socket, $) {
+
+		var message = $("#message");
+=======
+require(["socket.io", "jquery", "angular", "domReady"],
+	function(io, $, angular){
         var message = $("#message");
+>>>>>>> 3d7f66f722b16771d4b6f793de7dcf5a600d141f
 
 		socket.callbacks.waiting = function (msg) {
 			message.text(msg || "waiting ...");
@@ -46,6 +61,5 @@ require(["socket", "jquery", "angular", "domReady"],
 				socket.move({message:'The message'});
 			}
 		});
-
 	}
 );

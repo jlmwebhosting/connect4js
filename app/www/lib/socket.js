@@ -1,4 +1,4 @@
-/*global require:false */
+/*global require:false, define:false */
 "use strict";
 define(['socket.io'],
 	function (io) {
