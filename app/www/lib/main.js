@@ -1,5 +1,5 @@
+/*global require:false, define:false */
 'use strict';
-
 require.config({
     paths: {
     	'domReady': 'require/domReady',
@@ -31,8 +31,8 @@ require.config({
     }
 });
 
-require(["socket.io", "jquery", "angular"],
-	function(io, $, angular){
+require(["socket", "jquery", "angular", "domReady"],
+	function(socket, $, angular){
         var app = angular.module('connect4', []);
         app.controller('GameController', GameController);
         app.run();

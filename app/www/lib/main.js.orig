@@ -1,0 +1,65 @@
+<<<<<<< HEAD
+"use strict";
+
+require.config({
+	shim: {
+		'socket.io': {
+=======
+'use strict';
+
+require.config({
+    paths: {
+    	'domRead': 'require/domReady',
+        'text':'require/require-text',
+        'jquery': 'jquery/jquery',
+        'angular': 'angular/angular.min',
+        'angular-resource': 'angular/angular-resource',
+        'angular-cookies': 'angular/angular-cookies',
+        'underscore': 'underscore/underscore-min',
+        'socket.io': '/socket.io/socket.io'
+    },
+    shim: {
+        'jquery': {
+            deps: [],
+            exports: '$'
+        },
+        'angular': {
+            deps: ['jquery'],
+            exports: 'angular'
+        },
+        'angular-resource': ['angular'],
+        'angular-cookies': ['angular'],
+        'underscore': {
+            exports: '_'
+        },
+        'socket.io': {
+>>>>>>> 3d7f66f722b16771d4b6f793de7dcf5a600d141f
+			exports: 'io'
+		}
+    }
+});
+
+<<<<<<< HEAD
+require(["socket","jquery","domReady"],
+	function(socket, $) {
+
+		var message = $("#message");
+=======
+require(["socket.io", "jquery", "angular", "domReady"],
+	function(io, $, angular){
+        var message = $("#message");
+>>>>>>> 3d7f66f722b16771d4b6f793de7dcf5a600d141f
+
+		socket.callbacks.waiting = function (msg) {
+			message.text(msg || "waiting ...");
+		};
+		socket.callbacks.player_move = function (data) {
+			message.text("player move: "+JSON.stringify(data));
+		};
+		$("#move").click(function (e) {
+			if (e.button === 0) {
+				socket.move({message:'The message'});
+			}
+		});
+	}
+);
