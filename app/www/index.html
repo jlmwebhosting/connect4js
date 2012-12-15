@@ -3,13 +3,14 @@
     <head>
         <title>Connect4 JS</title>
         <script data-main="lib/main" src="/lib/require.js"></script>
+        <script src="/js/controllers/game_controller.js"></script>
     </head>
     <body>
         <h1>Connect Four</h1>
         <p>...</p>
-
-<p id="message">Loading ...</p>
-<input type="button" value="move" id="move" />
-
+        <div ng-controller="GameController">
+			<p id="message">{{message}}</p>
+			<button type="button" value="move" ng-click="move()">Move</button>
+		</div>
     </body>
 </html>
