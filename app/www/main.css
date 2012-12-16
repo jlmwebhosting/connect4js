@@ -35,6 +35,7 @@ section {
 
 #contentWrapper {
   width: 960px;
+  background: url("/images/gameboard_bg.png") no-repeat;
   margin: auto;
   padding-top: 50px;
   padding-left: 0px;
