@@ -12,6 +12,7 @@ define(['angular', "socket"],
 
 			socket.callbacks.message = function (msg) {
 				$scope.message = msg || "waiting ...";
+				$scope.$apply();
 			};
 			socket.callbacks.player_move = function (data) {
 				console.log(data);
@@ -26,6 +27,7 @@ define(['angular', "socket"],
 				switch(type){
 					case "normal":
 						console.log(user, "Move: invert row", position);
+						
 					break;
 					case "explode":
 						console.log(user, "Move: explode");
