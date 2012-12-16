@@ -4,7 +4,6 @@
         <title>Connect4 JS</title>
         <link REL="StyleSheet" TYPE="text/css" HREF="main.css">
         <script data-main="lib/main" src="/lib/require.js"></script>
-        <!--<script type="text/javascript" src="js/controllers/game_controller.js"></script>-->
     </head>
     <body ng-controller="GameController">
 		<p ng-show="message">{{message}}</p>
@@ -14,9 +13,9 @@
 			</div>
 		</div>
 
-		<input type="button" value="normal" id="moveNormal" src="/images/normal.jpg" onClick="move('normal')" />
-		<input type="button" value="explode" id="moveExplode" src="/images/normal.jpg" onClick="move('explode')"/>
-		<input type="button" value="invert_row" id="moveInvertRow" src="/images/normal.jpg" onClick="move('invertRow')"/>
-		<input type="button" value="invert_column" id="moveInvertColumn" src="/images/normal.jpg" onClick="move('invertColumn')"/>
+		<input type="button" value="normal" id="moveNormal" src="/images/normal.jpg" ng-click="move('normal')" />
+		<input type="button" value="explode" id="moveExplode" src="/images/normal.jpg" ng-click="move('explode')"/>
+		<input type="button" value="invert_row" id="moveInvertRow" src="/images/normal.jpg" ng-click="move('invertRow')"/>
+		<input type="button" value="invert_column" id="moveInvertColumn" src="/images/normal.jpg" ng-click="move('invertColumn')"/>
     </body>
 </html>
