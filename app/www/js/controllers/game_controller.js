@@ -1,6 +1,8 @@
-define(['angular', "socket"],
-	function(angular, socket){
+define(['angular', "socket", "jquery"],
+	function(angular, socket, $){
 		var GameController = function($scope){
+			var gameBoard = $("#gameBoard");
+
 			$scope.message = "Loading ...";
 
 			$scope.drop = function(position){
@@ -24,10 +26,13 @@ define(['angular', "socket"],
 			var processMove = function(user, data){
 				var type = data.type;
 				var position = data.position;
+				var td = gameBoard.find("td:nth-child(" + position + ")").not(".used");
 				switch(type){
 					case "normal":
-						console.log(user, "Move: invert row", position);
-						
+						console.log(user, "Move: normal", position);
+						td.last().addClass("used");
+						td.last().addClass(user);
+						console.log(td);
 					break;
 					case "explode":
 						console.log(user, "Move: explode");
