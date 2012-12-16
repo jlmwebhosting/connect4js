@@ -3,36 +3,41 @@ define(['angular', "socket"],
 		var GameController = function($scope){
 			$scope.message = "Loading ...";
 
-			$scope.move = function(type){
-				socket.move({message:type});
-				processMove(type);
+			$scope.drop = function(position){
+				console.log("dropped", position);
+				var data = {type: "normal", position: position};
+				socket.move(data);
+				processMove("you", data);
 			}
 
 			socket.callbacks.waiting = function (msg) {
 				$scope.message = msg || "waiting ...";
 			};
 			socket.callbacks.player_move = function (data) {
+				console.log(data);
 				//move handler; inbound
 				//$scope.message = "player move: "+JSON.stringify(data);
-				processMove(data.message);
+				processMove("them", data);
 			};
 
-			var processMove = function(type){
+			var processMove = function(user, data){
+				var type = data.type;
+				var position = data.position;
 				switch(type){
 					case "normal":
-						console.log("Move: invert row");
+						console.log(user, "Move: invert row", position);
 					break;
 					case "explode":
-						console.log("Move: explode");
+						console.log(user, "Move: explode");
 					break;
 					case "invertColumn":
-						console.log("Move: invert column");
+						console.log(user, "Move: invert column");
 					break;
 					case "invertRow":
-						console.log("Move: invert row");
+						console.log(user, "Move: invert row");
 					break;
 					default:
-						console.log("invalid move");
+						console.log(user, "invalid move");
 					break;
 				}
 			}
