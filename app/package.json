@@ -1,0 +1,15 @@
+{
+  "name": "connect4holidayjs",
+  "subdomain": "connect4holiday",
+  "scripts": {
+    "start": "server.js"
+  },
+  "version": "0.0.0-2",
+  "engines": {
+    "node": "0.8.x"
+  },
+  "dependencies": {
+    "express": "3.0.x",
+    "socket.io": "0.9.x"
+  }
+}

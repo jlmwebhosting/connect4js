@@ -9,17 +9,17 @@ define(['angular', "socket", "jquery"],
 			})
 
 			var gameBoard = $("#gameBoard");
-			var yourTurn = true;
-
+			
+			$scope.yourTurn = true;
 			$scope.message = "Loading ...";
 
 			$scope.drop = function(position){
-				if(!yourTurn) return;
+				if(!$scope.yourTurn) return;
 				var data = {type: "normal", position: position};
 				socket.move(data);
 				processMove("you", data);
-				yourTurn = false;
 				$scope.message = "Waiting on opponent to play";
+				$scope.$apply();
 			}
 
 			socket.callbacks.message = function (msg) {
@@ -28,12 +28,12 @@ define(['angular', "socket", "jquery"],
 			};
 			socket.callbacks.player_move = function (data) {
 				processMove("them", data);
-				yourTurn = true;
 				$scope.message = "Your turn";
 				$scope.$apply();
 			};
 
 			var processMove = function(user, data){
+				$scope.yourTurn = user == "them";
 				var type = data.type;
 				var position = data.position;
 				var td = gameBoard.find("td:nth-child(" + position + ")").not(".used");
