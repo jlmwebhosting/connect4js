@@ -2,10 +2,10 @@
 'use strict';
 require.config({
     paths: {
+        "game_controller": "/js/controllers/game_controller",
     	'domReady': 'require/domReady',
         'text':'require/require-text',
         'jquery': 'jquery/jquery',
-        "game_controller": "/js/controllers/game_controller",
         'angular': 'angular/angular.min',
         'angular-resource': 'angular/angular-resource',
         'angular-cookies': 'angular/angular-cookies',
