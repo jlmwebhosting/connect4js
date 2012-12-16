@@ -38,7 +38,11 @@ io.sockets.on('connection', function (socket) {
 	if (waiting) {
 		waiting.player = socket;
 		socket.player = waiting;
+		waiting.emit('message',{message: "Connected."});
+		socket.emit('message',{message: "Connected."});
+		waiting = null;
 	} else {
+		waiting = socket;
 		socket.emit('waiting',{message: "Waiting for another player..."});
 	}
 	

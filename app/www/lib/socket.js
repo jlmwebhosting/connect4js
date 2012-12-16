@@ -4,14 +4,14 @@ define(['socket.io'],
 	function (io) {
 		var callbacks = {
 			player_move: null,
-			waiting: null
+			message: null
 		};
 
 		var socket = io.connect('/');
-		socket.on("waiting", function (data) {
+		socket.on("message", function (data) {
 			var msg = (data && data.message) || "waiting ...";
-			if (callbacks.waiting) {
-				callbacks.waiting(msg);
+			if (callbacks.message) {
+				callbacks.message(msg);
 			}
 		});
 		socket.on("player_move", function (data) {

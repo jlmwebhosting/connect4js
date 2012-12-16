@@ -8,7 +8,7 @@ define(['angular', "socket"],
 				processMove(type);
 			}
 
-			socket.callbacks.waiting = function (msg) {
+			socket.callbacks.message = function (msg) {
 				$scope.message = msg || "waiting ...";
 			};
 			socket.callbacks.player_move = function (data) {
