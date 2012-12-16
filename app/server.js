@@ -41,9 +41,11 @@ io.sockets.on('connection', function (socket) {
 		waiting.emit('message',{message: "Connected."});
 		socket.emit('message',{message: "Connected."});
 		waiting = null;
+		console.log("connected player 2, starting game");
 	} else {
 		waiting = socket;
 		socket.emit('waiting',{message: "Waiting for another player..."});
+		console.log("connected player 1");
 	}
 	
 	socket.on('move', function (data) {
@@ -53,5 +55,17 @@ io.sockets.on('connection', function (socket) {
 			// still waiting
 			socket.emit('waiting',{message: "Can't move until another player joins your game"});
 		}
+	});
+
+	socket.on('disconnect', function () {
+		if (socket.player) {
+			try {
+				socket.player.emit('message',{message: "Other player disconnected"});
+			} catch (e) {
+				// Ignroe it
+			}
+			socket.player.player = null;
+		}
+		socket.player = null;
 	});
 });
