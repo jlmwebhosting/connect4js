@@ -1,6 +1,13 @@
 define(['angular', "socket", "jquery"],
 	function(angular, socket, $){
 		var GameController = function($scope){
+			$(document).keyup(function(ev){
+				var key = ev.which-48;
+				if(key >= 1 && key <= 7){
+					$scope.drop(key);
+				}
+			})
+
 			var gameBoard = $("#gameBoard");
 			var yourTurn = true;
 
