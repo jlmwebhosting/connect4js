@@ -8,6 +8,12 @@
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  */
 
+html {
+  overflow: -moz-scrollbars-vertical;
+  overflow-y: scroll;
+  overflow-x: auto;
+}
+
 article,
 aside,
 details,
@@ -33,7 +39,8 @@ section {
 }
 
 #contentWrapper {
-  width: 1009px;
+  width: 963px;
+  height: 501px;
   background: url("/images/gameboard_bg.png") no-repeat;
   margin: auto;
   padding-top: 50px;
@@ -42,8 +49,10 @@ section {
 }
 
 #buttonwrapper {
+  width: 963px;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
 }
 
 
