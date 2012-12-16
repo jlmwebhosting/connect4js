@@ -75,11 +75,14 @@
 					</tr>
 				</table>
 			</div>
+			
+			<div id="buttonwrapper">
+				<button type="button" value="normal" id="moveNormal" ng-click="move('normal')"><img src="/images/raindeer_btn.png" /></button>
+				<button type="button" value="explode" id="moveExplode" ng-click="move('explode')"><img src="/images/bomb_btn.jpg" /></button>
+				<button type="button" value="invert_row" id="moveInvertRow" ng-click="move('invertRow')"><img src="/images/reverse_btn.png" /></button>
+				<button type="button" value="invert_column" id="moveInvertColumn" ng-click="move('invertColumn')"><img src="/images/vertical_btn.png" /></button>
+			</div>
 		</div>
 
-		<input type="button" value="normal" id="moveNormal" src="/images/normal.jpg" ng-click="move('normal')" />
-		<input type="button" value="explode" id="moveExplode" src="/images/normal.jpg" ng-click="move('explode')"/>
-		<input type="button" value="invert_row" id="moveInvertRow" src="/images/normal.jpg" ng-click="move('invertRow')"/>
-		<input type="button" value="invert_column" id="moveInvertColumn" src="/images/normal.jpg" ng-click="move('invertColumn')"/>
-    </body>
+	</body>
 </html>
