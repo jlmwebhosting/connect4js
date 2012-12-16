@@ -25,7 +25,6 @@ section {
   width: 100%;
   height: 720px;
   background: url("/images/main_bg.jpg") no-repeat;
-  border: 1px solid #00ff00;
   background-color: #ffffff;
   padding-bottom: 0px;
   margin-right: auto;
@@ -34,12 +33,17 @@ section {
 }
 
 #contentWrapper {
-  width: 960px;
+  width: 1009px;
   background: url("/images/gameboard_bg.png") no-repeat;
   margin: auto;
   padding-top: 50px;
   padding-left: 0px;
   padding-right: 0px;
+}
+
+#buttonwrapper {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
