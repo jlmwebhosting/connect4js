@@ -31,11 +31,19 @@ section {
 #contentWrapper {
   width: 963px;
   height: 501px;
-  background: url("/images/gameboard_bg.png") no-repeat;
+  /*background: url("/images/gameboard_bg.png") no-repeat;*/
   margin: auto;
   padding-top: 50px;
   padding-left: 0px;
   padding-right: 0px;
+}
+
+#contentWrapper th{
+  height:40px;
+}
+#contentWrapper td{
+  height:50px;
+  border: 10px solid #003366;
 }
 
 #buttonwrapper {
